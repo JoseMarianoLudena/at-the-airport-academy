@@ -30,7 +30,7 @@ const Footer = () => {
             <div className="footer-brand">
               <div className="footer-logo">
                 <img 
-                  src="/images/logo.png" 
+                 src={process.env.PUBLIC_URL + "/images/logo.png"}
                   alt="At The Airport" 
                   className="footer-logo-img"
                 />

@@ -35,7 +35,7 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <img src="/images/logo.png" alt="At The Airport" className="logo-img" />
+            <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt="At The Airport" className="logo-img" />
             <div className="logo-text">
               <h2>AT THE AIRPORT</h2>
               <span>English Aviation Academy</span>
