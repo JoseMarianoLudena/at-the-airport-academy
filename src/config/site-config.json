@@ -1,0 +1,37 @@
+{
+  "siteId": "at-the-airport",
+  "general": {
+    "siteName": "AT THE AIRPORT",
+    "tagline": "English Aviation Academy",
+    "description": "Especialistas en inglés aeronáutico para la próxima generación de profesionales de la aviación",
+    "domain": "aeronauticalenglish.es",
+    "language": "es",
+    "currency": "EUR",
+    "currencySymbol": "€"
+  },
+  "contact": {
+    "phone": "+34 635 952 231",
+    "email": "info@aeronauticalenglish.es",
+    "whatsapp": {
+      "number": "34635952231",
+      "defaultMessage": "Estoy+interesado+en+aprender+inglés+aeronáutico"
+    },
+    "businessHours": {
+      "weekdays": "Lunes - Viernes: 9:00 AM - 8:00 PM"
+    }
+  },
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/profile.php?id=61580190696923",
+    "instagram": "https://www.instagram.com/atairportenglishacademy?igsh=MXI3Y3lxbGc3cHRwdg%3D%3D&utm_source=qr",
+    "youtube": "https://www.youtube.com/@WendyCfb"
+  },
+  "externalLinks": {
+    "contactForm": "https://docs.google.com/forms/d/e/1FAIpQLSePZZkEFkB8n6AkMx-hkI6ZBx8Vpw9kEj-kR_GsO714VnNlbg/viewform",
+    "calendly": "https://calendly.com/wendycfb/llamada-at-the-airport-by-wendy-camargo"
+  },
+  "assets": {
+    "logo": "/assets/images/logo.png",
+    "heroImage": "/assets/images/hero-main-image.jpg",
+    "aboutImage": "/assets/images/wendy-camargo.jpg"
+  }
+}

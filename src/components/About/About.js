@@ -1,118 +1,77 @@
 import React from 'react';
+import { useSiteConfig, useContentConfig } from '../../hooks/useConfig';
+import { getImageSrc } from '../../utils/configUtils';
 import './About.css';
-// Importar la imagen
-import wendyPhoto from '../../assets/images/wendy-camargo.jpg';
 
 const About = () => {
+  const siteConfig = useSiteConfig();
+  const contentConfig = useContentConfig();
+
+  const about = contentConfig?.about || {};
+  const founder = about.founder || {};
+  const features = about.features || [];
+  const aboutImage = siteConfig?.assets?.aboutImage;
+
   return (
     <section id="sobre-nosotros" className="about section">
       <div className="container">
+        {/* PRIMERA FILA: TEXTO + IMAGEN */}
         <div className="about-content">
           <div className="about-text" data-aos="fade-right">
-            <h2 className="section-title">Sobre la Academia</h2>
-            <p className="section-subtitle">
-              Especialistas en inglés aeronáutico para la próxima generación de profesionales de la aviación
-            </p>
-            
+            <h2 className="section-title">{about.title}</h2>
+            <p className="section-subtitle">{about.subtitle}</p>
             <div className="about-description">
-              <p>
-                <strong>At The Airport - English Aviation Academy</strong> es una institución especializada 
-                en la enseñanza de inglés aeronáutico, diseñada específicamente para estudiantes jóvenes 
-                aspirantes a pilotos, tripulación de cabina y profesionales del sector aéreo.
-              </p>
-              
-              <p>
-                Nuestra metodología única combina el aprendizaje del idioma inglés con terminología 
-                específica de la aviación, procedimientos aeroportuarios y comunicación efectiva en 
-                entornos aeronáuticos reales.
-              </p>
-              
-              <p>
-                Dirigida por <strong>Wendy Camargo</strong>, profesional con amplia experiencia en el 
-                sector de la aviación y la enseñanza del inglés, nuestra academia se enfoca en preparar 
-                a los estudiantes para enfrentar con confianza los desafíos del mundo aeronáutico internacional.
-              </p>
-            </div>
-            
-            <div className="about-features">
-              <div className="feature-item" data-aos="fade-up" data-aos-delay="200">
-                <div className="feature-icon">
-                  <span>🎯</span>
-                </div>
-                <div className="feature-content">
-                  <h4>Enfoque Especializado</h4>
-                  <p>Metodología específica para el sector aeronáutico</p>
-                </div>
-              </div>
-              
-              <div className="feature-item" data-aos="fade-up" data-aos-delay="300">
-                <div className="feature-icon">
-                  <span>👨‍🏫</span>
-                </div>
-                <div className="feature-content">
-                  <h4>Instructores Expertos</h4>
-                  <p>Profesionales con experiencia en aviación e inglés</p>
-                </div>
-              </div>
-              
-              <div className="feature-item" data-aos="fade-up" data-aos-delay="400">
-                <div className="feature-icon">
-                  <span>🌟</span>
-                </div>
-                <div className="feature-content">
-                  <h4>Orientado a Jóvenes</h4>
-                  <p>Programas diseñados para estudiantes aspirantes</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="about-cta" data-aos="fade-up" data-aos-delay="500">
-              <button 
-                onClick={() => document.getElementById('programas').scrollIntoView({ behavior: 'smooth' })}
-                className="btn-primary"
-              >
-                Conoce Nuestros Programas
-              </button>
+              {Array.isArray(about.description)
+                ? about.description.map((parr, idx) => (
+                    <p key={idx} dangerouslySetInnerHTML={{ __html: parr }} />
+                  ))
+                : <p>{about.description}</p>
+              }
             </div>
           </div>
-          
+          {/* IMAGEN Y DATOS FUNDADORA */}
           <div className="about-visual" data-aos="fade-left" data-aos-delay="300">
-            <div className="visual-container">
-              <div className="visual-elements">
-                <div className="element-card element-1">
-                  <span className="element-icon">🎓</span>
-                  <span className="element-text">Certificación Internacional</span>
+            <div className="founder-photo">
+              <div className="photo-container">
+                <div className="photo-image">
+                  <img
+                    src={getImageSrc(aboutImage, '/assets/images/wendy-camargo.jpg')}
+                    alt={`${founder.name} - Fundadora`}
+                    className="founder-img"
+                  />
                 </div>
-                
-                <div className="element-card element-2">
-                  <span className="element-icon">💼</span>
-                  <span className="element-text">Preparación Laboral</span>
-                </div>
-                
-                <div className="element-card element-3">
-                  <span className="element-icon">🌍</span>
-                  <span className="element-text">Estándares Globales</span>
-                </div>
-              </div>
-              
-              <div className="founder-photo">
-                <div className="photo-container">
-                  {/* Usar la imagen real */}
-                  <div className="photo-image">
-                    <img 
-                      src={wendyPhoto} 
-                      alt="Wendy Camargo - Fundadora" 
-                      className="founder-img"
-                    />
-                  </div>
-                  <div className="founder-info">
-                    <h4>Wendy Camargo</h4>
-                    <p>Fundadora & Directora</p>
-                    <span>Especialista en Inglés Aeronáutico</span>
-                  </div>
+                <div className="founder-info">
+                  <h4>{founder.name}</h4>
+                  <p>{founder.title}</p>
+                  <span>{founder.experience}</span>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        {/* FEATURES */}
+        <div className="about-features-section" data-aos="fade-up" data-aos-delay="500">
+          <div className="about-features">
+            {features.map((feature, idx) => (
+              <div className="feature-item" key={idx} data-aos="fade-up" data-aos-delay={200 + idx * 100}>
+                <div className="feature-icon">
+                  <span>{feature.icon}</span>
+                </div>
+                <div className="feature-content">
+                  <h4>{feature.title}</h4>
+                  <p>{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* BOTÓN CENTRADO */}
+          <div className="about-cta-centered" data-aos="fade-up" data-aos-delay="600">
+            <button
+              onClick={() => document.getElementById('programas').scrollIntoView({ behavior: 'smooth' })}
+              className="btn-primary"
+            >
+              {about.ctaButton}
+            </button>
           </div>
         </div>
       </div>

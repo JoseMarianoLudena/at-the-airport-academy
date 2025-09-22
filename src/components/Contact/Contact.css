@@ -40,6 +40,15 @@
   margin-bottom: 80px;
   position: relative;
   z-index: 1;
+  /* ✅ IGUALAR ALTURAS DE LOS CUADROS */
+  align-items: stretch;
+}
+
+/* ✅ AGREGAR ESTOS ESTILOS PARA IGUALAR ALTURAS */
+.contact-form-section,
+.contact-info-section {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-container {
@@ -49,6 +58,10 @@
   box-shadow: var(--shadow-medium);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 700px; /* ✅ AUMENTAR A 650px */
+  height: 700px; /* ✅ AGREGAR ALTURA FIJA */
 }
 
 .form-container::before {
@@ -83,6 +96,8 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  /* ✅ HACER QUE EL FORMULARIO OCUPE EL ESPACIO DISPONIBLE */
+  flex: 1;
 }
 
 .form-row {
@@ -240,7 +255,10 @@
   border-radius: 25px;
   padding: 50px 40px;
   box-shadow: var(--shadow-medium);
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  min-height: 700px; /* ✅ AUMENTAR A 650px */
+  height: 700px; /* ✅ AGREGAR ALTURA FIJA */
 }
 
 .contact-info h3 {
@@ -258,15 +276,18 @@
 }
 
 .contact-items {
-  margin-bottom: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* ✅ CAMBIAR DE center A flex-start */
+  padding: 10px 0; /* ✅ AGREGAR PADDING */
 }
-
 .contact-item {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 30px;
-  padding: 20px;
+  gap: 15px; /* ✅ REDUCIR GAP */
+  margin-bottom: 20px; /* ✅ REDUCIR MARGIN */
+  padding: 15px; /* ✅ REDUCIR PADDING */
   border-radius: var(--border-radius);
   transition: var(--transition-fast);
 }
@@ -276,50 +297,52 @@
 }
 
 .contact-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px; /* ✅ REDUCIR TAMAÑO */
+  height: 50px; /* ✅ REDUCIR TAMAÑO */
   background: linear-gradient(135deg, rgba(30, 91, 168, 0.1), rgba(74, 158, 255, 0.1));
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* ✅ REDUCIR TAMAÑO */
   flex-shrink: 0;
 }
 
 .contact-details h4 {
   font-family: var(--font-secondary);
-  font-size: 1.2rem;
+  font-size: 1.1rem; /* ✅ REDUCIR TAMAÑO */
   font-weight: 600;
   color: var(--primary-blue);
   margin-bottom: 5px;
 }
 
 .contact-main {
-  font-size: 1.1rem;
+  font-size: 1rem; /* ✅ REDUCIR TAMAÑO */
   font-weight: 600;
-  color: var(--text-dark);
+  color: #333333 !important;
   margin-bottom: 3px;
+  word-break: break-word; /* ✅ PERMITIR QUIEBRE DE PALABRAS */
 }
 
 .contact-sub {
-  font-size: 0.9rem;
-  color: var(--text-light);
+  font-size: 0.85rem; /* ✅ REDUCIR TAMAÑO */
+  color: #666666 !important;
   margin: 0;
+  word-break: break-word; /* ✅ PERMITIR QUIEBRE DE PALABRAS */
 }
 
 .social-section {
-  margin-bottom: 40px;
-  padding-top: 30px;
+  margin-bottom: 20px; /* ✅ REDUCIR MARGIN */
+  padding-top: 20px; /* ✅ REDUCIR PADDING */
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .social-section h4 {
   font-family: var(--font-secondary);
-  font-size: 1.3rem;
+  font-size: 1.2rem; /* ✅ REDUCIR TAMAÑO */
   font-weight: 600;
   color: var(--primary-blue);
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* ✅ REDUCIR MARGIN */
 }
 
 .social-links {
@@ -328,37 +351,40 @@
   flex-wrap: wrap;
 }
 
+/* ✅ ARREGLAR ICONOS DE REDES SOCIALES - SIN FONDO NARANJA */
 .social-link {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange));
+  width: 45px; /* ✅ REDUCIR TAMAÑO */
+  height: 45px; /* ✅ REDUCIR TAMAÑO */
+  background: transparent; /* ✅ QUITAR FONDO NARANJA */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--primary-blue); /* ✅ COLOR DEL ICONO */
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem; /* ✅ REDUCIR TAMAÑO */
   transition: var(--transition-fast);
 }
 
 .social-link:hover {
-  transform: translateY(-3px);
+  background: var(--white); /* ✅ FONDO AZUL AL HOVER */
+  color: var(--white); /* ✅ ICONO BLANCO AL HOVER */
+  transform: translateY(-2px); /* ✅ REDUCIR MOVIMIENTO */
   box-shadow: var(--shadow-light);
 }
-
 .office-hours {
-  padding-top: 30px;
+  padding-top: 20px; /* ✅ REDUCIR PADDING */
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .office-hours h4 {
   font-family: var(--font-secondary);
-  font-size: 1.3rem;
+  font-size: 1.2rem; /* ✅ REDUCIR TAMAÑO */
   font-weight: 600;
   color: var(--primary-blue);
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* ✅ REDUCIR MARGIN */
 }
+
 
 .hours-grid {
   display: flex;
@@ -370,7 +396,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 15px;
+  padding: 10px 12px; /* ✅ REDUCIR PADDING */
   background: rgba(30, 91, 168, 0.05);
   border-radius: 8px;
 }
@@ -417,12 +443,14 @@
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 15px;
+  color: var(--white);
 }
 
 .cta-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
   opacity: 0.95;
+  color: var(--white);
 }
 
 .schedule-call {
@@ -450,11 +478,15 @@
   .contact-content {
     grid-template-columns: 1fr;
     gap: 50px;
+    /* ✅ RESETEAR ALIGN-ITEMS EN MÓVIL */
+    align-items: normal;
   }
 
   .form-container,
   .contact-info {
     padding: 30px 25px;
+    height: auto; /* ✅ RESETEAR EN MÓVIL */
+    min-height: auto; /* ✅ RESETEAR EN MÓVIL */
   }
 
   .form-row {
@@ -530,5 +562,165 @@
   .schedule-call {
     padding: 15px 30px;
     font-size: 1rem;
+  }
+}
+
+/* Estilos para el contenedor del carrusel */
+.video-carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Estilos para las flechas */
+.carousel-arrow {
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-light);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.carousel-arrow:hover {
+  background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange));
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.carousel-arrow span {
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* Indicadores del carrusel */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(30, 91, 168, 0.3);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.indicator.active {
+  background: var(--primary-blue);
+  transform: scale(1.3);
+}
+
+.indicator:hover {
+  background: var(--light-blue);
+  transform: scale(1.1);
+}
+
+/* ✅ CAMBIAR SOLO ESTA LÍNEA EN .video-grid */
+.video-grid {
+  grid-template-columns: repeat(3, 1fr); /* ✅ CAMBIAR DE auto-fit A 3 COLUMNAS FIJAS */
+  gap: 25px;
+}
+
+/* ✅ HACER QUE EL CONTENIDO SE DISTRIBUYA BIEN */
+.form-cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 0;
+  flex: 1; /* ✅ OCUPAR ESPACIO DISPONIBLE */
+  justify-content: center; /* ✅ CENTRAR VERTICALMENTE */
+}
+
+.form-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.benefit-point {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: var(--light-gray);
+  border-radius: var(--border-radius);
+}
+
+.check-icon {
+  color: var(--vibrant-orange);
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.benefit-point p {
+  margin: 0;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.btn-google-forms {
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+  color: var(--white);
+  border: none;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.btn-google-forms:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ✅ AJUSTES ESPECÍFICOS PARA PANTALLAS PEQUEÑAS */
+@media (max-width: 1200px) {
+  .form-container,
+  .contact-info {
+    min-height: 600px;
+    height: 600px;
+  }
+}
+
+@media (max-width: 992px) {
+  .form-container,
+  .contact-info {
+    min-height: 550px;
+    height: 550px;
+  }
+  
+  .contact-item {
+    margin-bottom: 15px;
+    padding: 12px;
   }
 }

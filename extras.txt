@@ -1,0 +1,169 @@
+SOLICITAR INFORMACION
+{/* <div className="contact-form-section" data-aos="fade-right">
+            <div className="form-container">
+              <div className="form-header">
+                <h3>Solicita Información</h3>
+                <p>Completa el formulario y te contactaremos en menos de 24 horas</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="contact-form">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="firstName">Nombre *</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      placeholder="Tu nombre"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="lastName">Apellido *</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      placeholder="Tu apellido"
+                    />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="email">Email *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="phone">Teléfono *</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      placeholder="+34 635 952 231"
+                    />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="program">Programa de Interés *</label>
+                    <select
+                      id="program"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Selecciona un programa</option>
+                      {programs.map(program => (
+                        <option key={program.value} value={program.value}>
+                          {program.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="level">Nivel de Inglés Actual</label>
+                    <select
+                      id="level"
+                      name="level"
+                      value={formData.level}
+                      onChange={handleChange}
+                    >
+                      <option value="">Selecciona tu nivel</option>
+                      {levels.map(level => (
+                        <option key={level.value} value={level.value}>
+                          {level.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="preferredSchedule">Horario Preferido</label>
+                  <select
+                    id="preferredSchedule"
+                    name="preferredSchedule"
+                    value={formData.preferredSchedule}
+                    onChange={handleChange}
+                  >
+                    <option value="">Selecciona un horario</option>
+                    {schedules.map(schedule => (
+                      <option key={schedule.value} value={schedule.value}>
+                        {schedule.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="message">Mensaje</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="5"
+                    placeholder="Cuéntanos más sobre tus objetivos y expectativas..."
+                  />
+                </div>
+
+                <button 
+                  type="submit" 
+                  className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <span className="btn-content">
+                      <span className="spinner"></span>
+                      Enviando...
+                    </span>
+                  ) : (
+                    <span className="btn-content">
+                      <span className="btn-icon">🚀</span>
+                      Enviar Solicitud
+                    </span>
+                  )}
+                </button>
+
+                {formStatus === 'success' && (
+                  <div className="form-message success">
+                    <span className="message-icon">✅</span>
+                    <div>
+                      <strong>¡Solicitud enviada exitosamente!</strong>
+                      <p>Te contactaremos en menos de 24 horas.</p>
+                    </div>
+                  </div>
+                )}
+
+                {formStatus === 'error' && (
+                  <div className="form-message error">
+                    <span className="message-icon">❌</span>
+                    <div>
+                      <strong>Error al enviar la solicitud</strong>
+                      <p>Por favor, intenta nuevamente o contáctanos directamente.</p>
+                    </div>
+                  </div>
+                )}
+              </form>
+            </div>
+          </div> */}
+

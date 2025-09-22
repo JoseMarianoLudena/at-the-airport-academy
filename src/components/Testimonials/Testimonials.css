@@ -56,7 +56,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   border-radius: 20px;
-  transition: all 0.3s ease; /* Transición suave para cambios */
+  transition: all 0.3s ease;
 }
 
 .testimonial-card::before {
@@ -244,7 +244,6 @@
   transform: scale(1.1);
 }
 
-/* Resto del CSS igual para videos y CTA... */
 .video-testimonials {
   margin-bottom: 80px;
 }
@@ -269,8 +268,8 @@
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
 .video-card {
@@ -309,7 +308,7 @@
 .video-thumbnail {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 200px;
   background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
   border-radius: 15px;
   display: flex;
@@ -317,7 +316,12 @@
   justify-content: center;
   margin-bottom: 20px;
   overflow: hidden;
-  cursor: pointer;
+  cursor: pointer; /* ✅ YA ESTÁ */
+  transition: transform 0.2s ease; /* ✅ AGREGAR ESTA LÍNEA */
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.02); /* ✅ AGREGAR TODO ESTE BLOQUE */
 }
 
 .video-play-icon {
@@ -389,7 +393,7 @@
 }
 
 .testimonials-cta {
-  background: linear-gradient(135deg, var(--light-gray), rgba(248, 249, 250, 0.8));
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue)); /* ✅ CAMBIAR */
   border-radius: 25px;
   padding: 60px 40px;
   text-align: center;
@@ -417,14 +421,14 @@
   font-family: var(--font-secondary);
   font-size: 2.3rem;
   font-weight: 700;
-  color: var(--primary-blue);
+  color: var(--white) !important; /* ✅ FORZAR BLANCO */
   margin-bottom: 20px;
   line-height: 1.3;
 }
 
 .cta-content p {
   font-size: 1.2rem;
-  color: var(--text-light);
+  color: var(--white) !important; /* ✅ FORZAR BLANCO */
   line-height: 1.7;
   max-width: 700px;
   margin: 0 auto 40px;
@@ -455,15 +459,16 @@
   color: var(--white);
 }
 
+/* ✅ ARREGLAR BOTÓN NARANJA */
 .cta-secondary {
   background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange));
   color: var(--white);
 }
 
-.cta-primary:hover,
 .cta-secondary:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange)); /* ✅ MANTENER NARANJA */
 }
 
 /* Responsive */
@@ -533,6 +538,10 @@
     width: 100%;
     max-width: 300px;
   }
+
+  .video-thumbnail {
+    height: 180px; /* ✅ AJUSTADO PARA MÓVILES */
+  }
 }
 
 @media (max-width: 480px) {
@@ -559,7 +568,7 @@
   }
 
   .video-thumbnail {
-    height: 120px;
+    height: 160px; /* ✅ MÁS PEQUEÑO EN MÓVILES */
   }
 
   .video-emoji {
@@ -568,5 +577,109 @@
 
   .cta-content h3 {
     font-size: 1.5rem;
+  }
+}
+
+/* ✅ ESTILOS MEJORADOS PARA LOS VIDEOS */
+.testimonial-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ✅ CAMBIADO DE 'cover' A 'contain' */
+  border-radius: 15px;
+  background: #000; /* ✅ FONDO NEGRO PARA MEJOR CONTRASTE */
+}
+
+/* ✅ RESPONSIVE PARA 4 VIDEOS */
+@media (max-width: 1200px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ✅ ESTILOS PARA EL THUMBNAIL DEL VIDEO */
+.video-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer; /* ✅ AGREGAR ESTA LÍNEA */
+}
+
+.video-thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease; /* ✅ AGREGAR ESTA LÍNEA */
+}
+
+.video-preview:hover .video-thumbnail-image {
+  transform: scale(1.05); /* ✅ AGREGAR TODO ESTE BLOQUE */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  pointer-events: none;
+  transition: background 0.3s ease; /* ✅ AGREGAR ESTA LÍNEA */
+}
+
+.video-preview:hover .video-overlay {
+  background: rgba(0, 0, 0, 0.4); /* ✅ AGREGAR TODO ESTE BLOQUE */
+}
+
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-medium);
+  z-index: 2;
+  cursor: pointer; /* ✅ AGREGAR ESTA LÍNEA */
+  transition: all 0.3s ease; /* ✅ MOVER ESTA LÍNEA AQUÍ */
+}
+
+.video-play-icon:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translate(-50%, -50%) scale(1.15); /* ✅ CAMBIAR DE 1.1 A 1.15 */
+  box-shadow: var(--shadow-strong); /* ✅ AGREGAR ESTA LÍNEA */
+}
+
+/* ✅ RESPONSIVE PARA THUMBNAILS CLICKEABLES */
+@media (max-width: 768px) {
+  .video-play-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-play-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 0.9rem;
   }
 }

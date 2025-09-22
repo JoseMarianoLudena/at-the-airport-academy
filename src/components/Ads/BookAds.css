@@ -1,0 +1,111 @@
+.book-ads-container {
+  position: fixed;
+  left: 20px; /* ✅ CAMBIAR DE right A left */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ads-header h4 {
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 10px 15px;
+  border-radius: 10px 10px 0 0;
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.book-ad {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  transition: var(--transition-fast);
+  border: #b9cee6 solid 3px;
+
+}
+
+.book-ad:hover {
+  transform: translateX(10px); /* ✅ CAMBIAR DIRECCIÓN DEL HOVER */
+  box-shadow: var(--shadow-strong);
+}
+
+.book-image {
+  width: 100%;
+  height: 160px; /* ✅ AUMENTAR ALTURA PARA VER MÁS IMAGEN */
+  overflow: hidden;
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ✅ CAMBIAR DE cover A contain PARA VER TODA LA IMAGEN */
+  background: var(--primary-blue); /* ✅ FONDO CLARO PARA MEJOR CONTRASTE */
+}
+
+.book-info {
+  padding: 15px;
+}
+
+.book-info h5 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin: 0 0 8px 0;
+}
+
+.book-info p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.book-price {
+  font-weight: 700;
+  color: var(--vibrant-orange);
+  font-size: 0.9rem;
+}
+
+.buy-btn {
+  background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange));
+  color: var(--white);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: var(--transition-fast);
+
+}.buy-btn {
+  background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange));
+  color: var(--white);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: var(--transition-fast);
+}
+
+.buy-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ✅ RESPONSIVE - OCULTAR EN MÓVILES */
+@media (max-width: 1024px) {
+  .book-ads-container {
+    display: none;
+  }
+}

@@ -197,10 +197,9 @@
   margin-bottom: 10px;
 }
 
-.detail-item:last-child {
+.detail-item:last-child:not(.pricing-section ~ .detail-item) {
   margin-bottom: 0;
 }
-
 .detail-label {
   font-weight: 500;
   color: var(--text-light);
@@ -348,6 +347,14 @@
   opacity: 0.9;
 }
 
+.programs-cta h3 {
+  color: white !important;  /* AGREGAR esta línea */
+}
+
+.programs-cta p {
+  color: white !important;  /* AGREGAR esta línea */
+}
+
 .cta-button {
   background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange));
   padding: 18px 40px;
@@ -421,5 +428,207 @@
   .popular-badge {
     font-size: 0.75rem;
     padding: 6px 35px;
+  }
+}
+
+/* ✅ ESTILOS PARA EL SWITCH DE PRECIOS */
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--light-gray);
+  border-radius: 50px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.toggle-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-light);
+  transition: var(--transition-fast);
+}
+
+.toggle-label.active {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--light-blue);
+  border-radius: 30px;
+  transition: var(--transition-fast);
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-light);
+  z-index: 1; /* ✅ AGREGAR ESTA LÍNEA */
+}
+
+input:checked + .toggle-slider {
+  background: var(--vibrant-orange);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(30px);
+}
+
+.toggle-button {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+}
+
+/* ✅ ESTILOS PARA SUBTÍTULO DEL PROGRAMA */
+.program-subtitle {
+  font-size: 0.9rem;
+  color: var(--vibrant-orange);
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+/* ✅ ESTILOS PARA LA SECCIÓN DE PRECIOS - SIN FONDO NI BORDE */
+.pricing-section {
+  margin-top: 15px;
+  /* ✅ QUITAMOS: padding, background, border-radius, border-left */
+}
+.pricing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* ✅ IGUAL QUE .detail-item */
+}
+
+.pricing-label {
+  font-weight: 600;
+  color: var(--primary-blue);
+  font-size: 1rem;
+}
+
+.pricing-value {
+  font-weight: 700;
+  color: var(--vibrant-orange);
+  font-size: 1.2rem;
+}
+
+.pricing-detail {
+  text-align: center;
+}
+
+.pricing-total,
+.pricing-savings {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.pricing-savings {
+  color: var(--vibrant-orange);
+  font-weight: 600;
+}
+
+/* ✅ RESPONSIVE PARA EL SWITCH */
+@media (max-width: 768px) {
+  .pricing-toggle {
+    gap: 15px;
+    padding: 15px;
+    max-width: 300px;
+  }
+  
+  .toggle-label {
+    font-size: 0.9rem;
+  }
+  
+  .toggle-switch {
+    width: 50px;
+    height: 25px;
+  }
+  
+  .toggle-slider:before {
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+  }
+  
+  input:checked + .toggle-slider:before {
+    transform: translateX(25px);
+  }
+}
+
+/* ✅ ESTADOS DE FOCUS PARA ACCESIBILIDAD */
+.toggle-switch input:focus + .toggle-slider {
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.3);
+}
+
+.btn-program:focus,
+.btn-info:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .program-title {
+    font-size: 1.3rem;
+  }
+
+  .program-features li {
+    font-size: 0.9rem;
+  }
+
+  .popular-badge {
+    font-size: 0.75rem;
+    padding: 6px 35px;
+  }
+  
+  /* ✅ AGREGAR ESTOS ESTILOS */
+  .pricing-section {
+    padding: 12px;
+  }
+  
+  .pricing-value {
+    font-size: 1.1rem;
+  }
+  
+  .program-subtitle {
+    font-size: 0.8rem;
   }
 }

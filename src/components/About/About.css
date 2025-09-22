@@ -19,7 +19,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 60px; /* ✅ AGREGAR ESTA LÍNEA */
+}
+
+/* ✅ AGREGAR ESTA NUEVA SECCIÓN PARA LOS FEATURES CENTRADOS */
+.about-features-section {
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .about-text {
@@ -43,14 +50,22 @@
 }
 
 .about-features {
-  margin: 50px 0;
+  margin: 0 auto 40px auto; /* ✅ CAMBIAR ESTO */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1000px; /* ✅ LIMITAR ANCHO MÁXIMO */
+}
+
+/* ✅ AGREGAR ESTE ESTILO PARA EL BOTÓN CENTRADO */
+.about-cta-centered {
+  text-align: center;
 }
 
 .feature-item {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  margin-bottom: 30px;
   padding: 20px;
   background: var(--white);
   border-radius: var(--border-radius);
@@ -93,86 +108,26 @@
   margin-top: 30px;
 }
 
+/* ✅ SIMPLIFICAMOS LA SECCIÓN VISUAL - SOLO FOTO DE WENDY */
 .about-visual {
   position: relative;
-  height: 600px;
+  display: flex;
+  justify-content: flex-start; /* ✅ CAMBIAR DE center A flex-start */
+  align-items: flex-start;
+  padding-top: 0;
 }
 
-.visual-container {
+/* ✅ FOTO DE WENDY MÁS GRANDE Y ARRIBA */
+.founder-photo {
   position: relative;
   width: 100%;
-  height: 100%;
-}
-
-/* Elementos flotantes */
-.visual-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 180px;
-}
-
-.element-card {
-  position: absolute;
-  background: var(--white);
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: var(--shadow-medium);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: var(--transition-fast);
-  animation: float 4s ease-in-out infinite;
-}
-
-.element-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-strong);
-}
-
-.element-1 {
-  top: 10px;
-  left: 0;
-  animation-delay: 0s;
-}
-
-.element-2 {
-  top: 50px;
-  right: -10px;
-  animation-delay: 1.5s;
-}
-
-.element-3 {
-  top: 100px;
-  left: 10px;
-  animation-delay: 3s;
-}
-
-.element-icon {
-  font-size: 1.5rem;
-}
-
-.element-text {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--primary-blue);
-  white-space: nowrap;
-}
-
-/* Foto de la fundadora - CUADRADA CON ESQUINAS REDONDEADAS */
-.founder-photo {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 340px;
+  max-width: 450px;
 }
 
 .photo-container {
   background: var(--white);
   border-radius: 20px;
-  padding: 25px;
+  padding: 20px;
   box-shadow: var(--shadow-strong);
   text-align: center;
   transition: var(--transition-fast);
@@ -183,12 +138,12 @@
   box-shadow: var(--shadow-strong);
 }
 
-/* Imagen cuadrada con esquinas redondeadas */
+/* ✅ IMAGEN MÁS GRANDE - CUADRADA CON ESQUINAS REDONDEADAS */
 .photo-image {
-  width: 220px;
-  height: 220px;
-  border-radius: 20px; /* Esquinas redondeadas, no circular */
-  margin: 0 auto 20px;
+  width: 350px;
+  height: 450px;
+  border-radius: 20px;
+  margin: 0 auto 25px;
   overflow: hidden;
   border: 4px solid var(--primary-blue);
   transition: var(--transition-fast);
@@ -205,12 +160,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top; /* Enfocar en la parte superior para retratos */
+  object-position: center top;
   transition: var(--transition-fast);
-  /* Optimización de renderizado */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  /* Para imágenes de alta resolución */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -219,13 +172,13 @@
   transform: scale(1.1);
 }
 
-/* Placeholder cuadrado (si no hay imagen) */
+/* ✅ PLACEHOLDER MÁS GRANDE (si no hay imagen) */
 .photo-placeholder {
-  width: 220px;
-  height: 220px;
-  border-radius: 20px; /* Esquinas redondeadas */
+  width: 280px;
+  height: 280px;
+  border-radius: 20px;
   background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
-  margin: 0 auto 20px;
+  margin: 0 auto 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,7 +195,7 @@
 }
 
 .photo-icon {
-  font-size: 4rem;
+  font-size: 5rem;
   filter: brightness(0) invert(1);
   transition: var(--transition-fast);
 }
@@ -268,44 +221,36 @@
 }
 
 .camera-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
 .photo-overlay p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   margin: 0;
 }
 
 .founder-info h4 {
   font-family: var(--font-secondary);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--primary-blue);
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .founder-info p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--vibrant-orange);
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .founder-info span {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-light);
   font-style: italic;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  line-height: 1.4;
 }
 
 /* Responsive */
@@ -315,27 +260,24 @@
     gap: 50px;
   }
 
-  .about-visual {
-    height: 450px;
-  }
-
   .founder-photo {
-    width: 300px;
+    max-width: 350px;
+    margin: 0 auto;
   }
 
   .photo-image,
   .photo-placeholder {
-    width: 180px;
-    height: 180px;
-    border-radius: 15px;
+    width: 240px;
+    height: 240px;
+    border-radius: 18px;
   }
 
   .photo-icon {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .founder-info h4 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .feature-item {
@@ -355,37 +297,51 @@
   }
 
   .founder-photo {
-    width: 270px;
+    max-width: 300px;
   }
 
   .photo-image,
   .photo-placeholder {
-    width: 160px;
-    height: 160px;
-    border-radius: 12px;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
   }
 
   .photo-icon {
-    font-size: 2.5rem;
-  }
-
-  .element-card {
-    padding: 10px 15px;
-  }
-
-  .element-text {
-    font-size: 0.8rem;
+    font-size: 3.5rem;
   }
 
   .founder-info h4 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .founder-info p {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .founder-info span {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .feature-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .camera-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .photo-overlay p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-features {
+    grid-template-columns: 1fr;
+    max-width: 600px;
   }
 }

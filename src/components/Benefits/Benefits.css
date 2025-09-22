@@ -213,7 +213,7 @@
 
 .highlight-stat {
   font-family: var(--font-secondary);
-  font-size: 3rem;
+  font-size: 2rem; /* ERA ANTES 3REM*/
   font-weight: 700;
   color: var(--primary-blue);
   margin-bottom: 10px;

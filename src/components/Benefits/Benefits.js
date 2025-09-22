@@ -5,62 +5,62 @@ const Benefits = () => {
   const benefits = [
     {
       icon: "🎯",
-      title: "Metodología Práctica",
-      description: "Aprendizaje orientado al mundo real con simulaciones de situaciones aeroportuarias y de vuelo reales.",
+      title: "Experiencia Práctica y Real",
+      description: "<strong>Lo que te ofrezco:</strong> Un aprendizaje enfocado en situaciones reales del día a día en un aeropuerto. Desde el primer día, aplicarás tus conocimientos para sentirte seguro en cualquier interacción.<br><strong>Beneficios Clave:</strong>",
       features: [
-        "Simulaciones de emergencias",
-        "Práctica con equipos reales",
-        "Casos de estudio actuales"
+        "Escenarios cotidianos: Prepara tu comunicación para cualquier situación común en el aeropuerto.",
+        "Casos prácticos: Aprende resolviendo desafíos que enfrentarás en tu trabajo.",
+        "Rol-playing dinámico: Practica conversaciones esenciales conmigo, ganando confianza."
       ]
     },
     {
       icon: "👨‍🏫",
-      title: "Profesores Especializados",
-      description: "Instructores con experiencia real en la industria aeronáutica y certificaciones internacionales.",
+      title: "Profesional Especializado",
+      description: "<strong>Lo que te ofrezco:</strong> Aprenderás directamente de un profesional que vive la aviación. No solo domino el inglés, sino que tengo experiencia real en la industria, garantizando una enseñanza relevante y actualizada.<br><strong>Beneficios Clave:</strong>",
       features: [
-        "Experiencia en aviación",
-        "Certificaciones ICAO",
-        "Metodología especializada"
+        "Experiencia comprobada: Recibe guía de alguien que conoce el sector desde dentro.",
+        "Metodología efectiva: Un método de enseñanza probado, diseñado para tu éxito.",
+        "Actualización constante: Contenido relevante y adaptado a las últimas tendencias aeroportuarias."
       ]
     },
     {
       icon: "🌐",
       title: "Flexibilidad Total",
-      description: "Clases online y presenciales adaptadas a tu horario y necesidades de aprendizaje.",
+      description: "<strong>Lo que te ofrezco:</strong> Tus tiempos importan, por eso las clases online se adaptan a tu ritmo. Con opciones en horarios diurnos o nocturnos, podrás avanzar sin interrupciones y diseñar tu propio camino hacia el dominio del inglés aeronáutico.<br><strong>Beneficios Clave:</strong>",
       features: [
-        "Horarios flexibles",
-        "Modalidad híbrida",
-        "Acceso 24/7 a materiales"
+        "Clases online: Aprende desde donde estés, con toda la comodidad.",
+        "Horarios adaptables: Opciones diurnas o nocturnas según tu disponibilidad.",
+        "Material exclusivo: Recursos especializados del sector aeronáutico, diseñados para tu progreso."
       ]
     },
     {
       icon: "🏆",
-      title: "Certificación Internacional",
-      description: "Diplomas reconocidos por la industria aeronáutica mundial y organizaciones internacionales.",
+      title: "Certificado de Finalización",
+      description: "<strong>Lo que te ofrezco:</strong> Al completar el curso, recibirás un certificado de finalización que reconoce tu esfuerzo y dedicación en el aprendizaje del inglés aeronáutico.",
       features: [
-        "Estándares ICAO",
-        "Reconocimiento global",
-        "Validez internacional"
+        "Reconocimiento de tu progreso: Un logro tangible para tu trayectoria.",
+        "Motivación adicional: Celebra tus avances con un diploma personal.",
+        "Valor curricular: Un respaldo para tu perfil académico y profesional."
       ]
     },
     {
       icon: "💼",
       title: "Orientación Laboral",
-      description: "Preparación específica para el mercado laboral con conexiones directas a empresas del sector.",
+      description: "<strong>Lo que te ofrezco:</strong> No solo aprenderás inglés, también te prepararé para dar el siguiente paso en tu carrera. Obtendrás herramientas y estrategias para destacar en el competitivo mercado aeroportuario.<br><strong>Beneficios Clave:</strong>",
       features: [
-        "Bolsa de trabajo",
-        "Conexiones empresariales",
-        "Seguimiento profesional"
+        "Asesoramiento profesional: Guía personalizada para tu búsqueda de empleo.",
+        "Preparación de entrevistas: Simulaciones y consejos para aumentar tu confianza.",
+        "Seguimiento y apoyo: Te acompaño hasta que alcances tu meta laboral."
       ]
     },
     {
       icon: "🚀",
-      title: "Tecnología Avanzada",
-      description: "Plataforma de aprendizaje moderna con realidad virtual y simuladores de última generación.",
+      title: "Aprendizaje Personalizado Innovador",
+      description: "<strong>Lo que te ofrezco:</strong> Una experiencia educativa enfocada en ti, con clases reducidas de 2 a 3 alumnos. Avanza a tu propio ritmo, mejora tu nivel de inglés y gana confianza al comunicarte en un ambiente cómodo y motivador.<br><strong>Beneficios Clave:</strong>",
       features: [
-        "Simuladores VR",
-        "Plataforma interactiva",
-        "Tecnología inmersiva"
+        "Clases reducidas: Atención personalizada en grupos pequeños (2 o 3 alumnos por clase).",
+        "Adaptabilidad a tu nivel: Contenido ajustado a tu conocimiento previo.",
+        "Comodidad al hablar: Pierde el miedo al inglés y gana seguridad paso a paso."
       ]
     }
   ];
@@ -68,13 +68,13 @@ const Benefits = () => {
   const testimonialHighlights = [
     {
       stat: "95%",
-      label: "Satisfacción del estudiante",
-      description: "de nuestros graduados recomiendan la academia"
+      label: "Satisfacción de nuestros alumnos",
+      description: "El 95% de nuestros graduados nos recomiendan"
     },
     {
-      stat: "500+",
-      label: "Estudiantes graduados",
-      description: "trabajando en aeropuertos internacionales"
+      stat: "Carreras que despegan",
+      label: "Éxito en cada vuelo",
+      description: "Preparamos a nuestros estudiantes para el éxito laboral en el aeropuerto"
     },
     {
       stat: "24/7",
@@ -82,9 +82,9 @@ const Benefits = () => {
       description: "acceso a tutores y materiales online"
     },
     {
-      stat: "3",
-      label: "Modalidades de estudio",
-      description: "presencial, online y modalidad híbrida"
+      stat: "Tu próximo paso",
+      label: "Guía personal",
+      description: "Te acompaño en cada etapa de tu formación, hasta que alcances tu meta"
     }
   ];
 
@@ -112,7 +112,10 @@ const Benefits = () => {
               </div>
               <div className="benefit-content">
                 <h3 className="benefit-title">{benefit.title}</h3>
-                <p className="benefit-description">{benefit.description}</p>
+                <p 
+                  className="benefit-description" 
+                  dangerouslySetInnerHTML={{ __html: benefit.description }}
+                ></p>
                 <ul className="benefit-features">
                   {benefit.features.map((feature, featureIndex) => (
                     <li key={featureIndex}>
@@ -152,9 +155,9 @@ const Benefits = () => {
         <div className="benefits-cta" data-aos="fade-up" data-aos-delay="900">
           <div className="cta-container">
             <div className="cta-text">
-              <h3>¿Listo para comenzar tu carrera en aviación?</h3>
+              <h3>¿Listo para comenzar tu carrera en ingles de aviación?</h3>
               <p>
-                Únete a cientos de estudiantes que ya están volando alto con su inglés aeronáutico. 
+                Se un profesional que vuela alto con su inglés aeronáutico. 
                 Tu futuro profesional despega aquí.
               </p>
             </div>

@@ -1,0 +1,187 @@
+{
+  "hero": {
+    "title": {
+      "line1": "Tu inglés de vuelo",
+      "line2": "comienza aquí",
+      "highlight": "comienza aquí"
+    },
+    "description": "Especialízate en inglés aeronáutico con la metodología más práctica y orientada al mundo real. Prepárate para trabajar en el aeropuerto,con confianza y fluidez.",
+    "stats": [
+      {
+        "number": "100+",
+        "label": "Profesionales formados"
+      },
+      {
+        "number": "95%",
+        "label": "Éxito Laboral"
+      },
+      {
+        "number": "3",
+        "label": "Programas certificados"
+      }
+    ],
+    "buttons": {
+      "primary": "Inscríbete Ahora",
+      "secondary": "Ver Programas",
+      "whatsapp": "Más Información"
+    }
+  },
+  "navigation": {
+    "menuItems": [
+      { "id": "inicio", "label": "Inicio" },
+      { "id": "sobre-nosotros", "label": "Sobre Nosotros" },
+      { "id": "programas", "label": "Programas" },
+      { "id": "beneficios", "label": "Beneficios" },
+      { "id": "testimonios", "label": "Testimonios" },
+      { "id": "contacto", "label": "Contacto" }
+    ]
+  },
+   "about": {
+    "title": "Sobre la Academia",
+    "subtitle": "Especialistas en inglés aeronáutico para la próxima generación de profesionales de la aviación",
+    "description": [
+      "<strong>At The Airport - English Aviation Academy</strong> es una institución líder, especializada en la enseñanza del inglés aeronáutico para <strong>futuros profesionales</strong> que aspiran a una carrera en el sector aéreo.",
+      "Nuestro método de enseñanza, <strong>único en su tipo</strong>, combina el aprendizaje del idioma inglés con la terminología específica de la aviación, los procedimientos aeroportuarios y la comunicación efectiva en situaciones reales del entorno aeronáutico.",
+      "Bajo la dirección de <strong>Wendy Camargo</strong>, una profesional con amplia experiencia tanto en el sector de la aviación como en la enseñanza, preparamos a nuestros estudiantes para afrontar con confianza los retos del mundo de la aviación internacional."
+    ],
+    "founder": {
+      "name": "Wendy Camargo",
+      "title": "Profesional en Aviación",
+      "experience": "Con más de 11 años de experiencia con formación en inglés en estados unidos y españa"
+    },
+    "features": [
+      {
+        "icon": "🎯",
+        "title": "Tu Carrera Despega en el Aeropuerto",
+        "description": "Adquiere las habilidades lingüísticas que te abrirán las puertas al sector aéreo y te permitirán comunicar con confianza en cualquier entorno aeroportuario."
+      },
+      {
+        "icon": "👨‍🏫",
+        "title": "Inglés para el Éxito Aeroportuario",
+        "description": "Domina la terminología y los procedimientos de comunicación esenciales para trabajar en la terminal, en la pista o en oficinas de aerolíneas."
+      },
+      {
+        "icon": "🌟",
+        "title": "De Aspirante a Experto",
+        "description": "Prepárate con instructores que tienen experiencia real en la aviación y te guiarán para que te conviertas en un profesional calificado y seguro."
+      }
+    ],
+    "ctaButton": "Conoce Nuestros Programas"
+  },
+  "programs": {
+    "title": "Nuestros Programas",
+    "subtitle": "Tres niveles progresivos diseñados para llevarte desde principiante hasta profesional certificado en inglés aeronáutico",
+    "cta": {
+      "title": "¿Listo para despegar?",
+      "description": "Comienza tu carrera en aviación con el programa que mejor se adapte a tu nivel",
+      "button": "Solicitar Información"
+    },
+    "pricingToggle": {
+      "unique": "Pago Único",
+      "monthly": "Pago Mensual"
+    },
+    "popularBadge": "¡El Más Popular!",
+    "buttons": {
+      "enroll": "Inscribirse",
+      "info": "Más Información"
+    },
+    "whatsapp": {
+      "prefix": "Estoy interesado en aprender inglés aeronáutico. Programa: "
+    },
+    "levels": [
+      {
+        "id": 1,
+        "title": "Tu Carrera Despega con Nosotros",
+        "subtitle": "El Inicio de Tu Carrera Aeroportuaria",
+        "level": "Nivel Básico",
+        "icon": "🛫",
+        "description": "¡Tu futuro profesional en el aeropuerto despega aquí! Este programa intensivo es tu pasaporte directo al sector aeroportuario. En solo 12 meses, adquirirás las bases esenciales del inglés aeronáutico y la confianza para comunicarte de manera efectiva en tu primer empleo. Es el primer paso indispensable para cualquier rol en el entorno aeroportuario.",
+        "features": [
+          "Vocabulario clave para el entorno aeroportuario",
+          "Frases esenciales para check-in y atención al pasajero",
+          "Comunicación básica con pasajeros y personal",
+          "Procedimientos de seguridad fundamentales",
+          "Terminología de equipaje y documentación",
+          "Simulaciones de interacción en escenarios reales",
+          "Certificado de finalización"
+        ],
+        "duration": "12 meses",
+        "pricing": {
+          "unique": {
+            "price": "€990",
+            "label": "Pago Único",
+            "savings": "¡Precio especial por tiempo limitado!"
+          },
+          "monthly": {
+            "price": "€90/mes",
+            "label": "Pago Mensual",
+            "total": "Total financiado: €1080"
+          }
+        },
+        "color": "basic"
+      },
+      {
+        "id": 2,
+        "title": "Inglés para Profesionales del Aeropuerto",
+        "subtitle": "¡Dominando la Comunicación Aeroportuaria!",
+        "level": "Nivel Intermedio",
+        "icon": "✈️",
+        "description": "¿Listo para elevar tus habilidades y asumir más responsabilidades? Nuestro programa In Flight te lleva al siguiente nivel, perfeccionando tu inglés aeronáutico para manejar situaciones complejas y comunicarte con total fluidez. Ideal para quienes ya tienen una base y desean destacar en roles que requieren mayor interacción y resolución de problemas.",
+        "features": [
+          "Comunicación avanzada en cabina y coordinación tierra-aire",
+          "Manejo de emergencias básicas y protocolos de seguridad",
+          "Servicio al cliente especializado y resolución de conflictos",
+          "Procedimientos de vuelo estándar y terminología avanzada",
+          "Interacción con tripulación internacional y autoridades aeroportuarias",
+          "Simulacros de incidentes y toma de decisiones",
+          "Certificado de finalización"
+        ],
+        "duration": "3 meses",
+        "pricing": {
+          "unique": {
+            "price": "€270",
+            "label": "Pago Único",
+            "savings": "¡Ahorra 30 euros!"
+          },
+          "monthly": {
+            "price": "€100/mes",
+            "label": "Pago Mensual",
+            "total": "Total financiado: €300"
+          }
+        },
+        "color": "intermediate",
+        "popular": true
+      },
+      {
+        "id": 3,
+        "title": "Expertos que te Llevan al Éxito",
+        "subtitle": "¡Tu Certificación y Liderazgo en la Aviación!",
+        "level": "Nivel Avanzado ONE TO ONE",
+        "icon": "👨‍✈️",
+        "description": "Conviértete en un líder indiscutible del sector aéreo con nuestro programa más exclusivo. Captain Mode es una formación personalizada (one-to-one) diseñada para llevarte a la cima. Perfecciona tu inglés aeronáutico al nivel profesional, obteniendo la confianza y las certificaciones necesarias para roles de alta responsabilidad, gestión y comunicación crítica.",
+        "features": [
+          "Inglés aeronáutico profesional y terminología especializada",
+          "Comunicación avanzada con torre de control y centros de operaciones",
+          "Liderazgo y toma de decisiones en situaciones de alta presión",
+          "Procedimientos de emergencia avanzados y gestión de crisis",
+          "Desarrollo de habilidades de presentación y negociación en inglés",
+          "Certificado de finalización"
+        ],
+        "duration": "6 meses",
+        "pricing": {
+          "unique": {
+            "price": "€490",
+            "label": "Pago Único",
+            "savings": "¡Inversión directa en tu excelencia!"
+          },
+          "monthly": {
+            "price": "€85/mes",
+            "label": "Pago Mensual",
+            "total": "Total financiado: €510"
+          }
+        },
+        "color": "advanced"
+      }
+    ]
+  }
+}

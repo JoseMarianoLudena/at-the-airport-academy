@@ -1,0 +1,226 @@
+.certification {
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.8) 0%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.certification::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(30, 91, 168, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.certification::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  right: -150px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* ✅ HEADER CENTRADO ARRIBA DE TODO */
+.certification-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ✅ CONTENIDO EN DOS COLUMNAS */
+.certification-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 60px;
+}
+
+.certification-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ✅ DESCRIPCIÓN ALINEADA A LA IZQUIERDA */
+.certification-text .section-subtitle {
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(30, 91, 168, 0.1), rgba(74, 158, 255, 0.1));
+  color: var(--primary-blue);
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid rgba(30, 91, 168, 0.2);
+  width: fit-content;
+  margin: 0 auto 20px auto; /* ✅ CENTRAR EL BADGE */
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+}
+
+/* ✅ BOTÓN CENTRADO ABAJO DE TODO */
+.certification-cta {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.certification-cta .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.certification-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.certificate-container {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+.certificate-frame {
+  position: relative;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow-strong);
+  overflow: hidden;
+}
+
+.certificate-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--vibrant-orange), var(--light-blue));
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+  transition: var(--transition-fast);
+}
+
+.certificate-overlay {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 2;
+}
+
+.certificate-badge {
+  background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-orange));
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-medium);
+}
+
+.certificate-info {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 1rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certification-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .certification-header {
+    margin-bottom: 40px;
+  }
+
+  .certification-text .section-subtitle {
+    text-align: center; /* ✅ CENTRAR EN MÓVIL */
+  }
+
+  .certificate-container {
+    max-width: 400px;
+  }
+
+  .certificate-info {
+    gap: 10px;
+  }
+
+  .info-item {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certification-content {
+    gap: 30px;
+  }
+
+  .certification-header {
+    margin-bottom: 30px;
+  }
+
+  .certificate-frame {
+    padding: 15px;
+  }
+
+  .certificate-overlay {
+    top: 25px;
+    right: 25px;
+  }
+}

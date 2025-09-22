@@ -1,113 +1,50 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    program: '',
-    level: '',
-    preferredSchedule: '',
-    message: ''
-  });
-
-  const [formStatus, setFormStatus] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const programs = [
-    { value: 'ready-for-takeoff', label: 'Ready for Take-Off (Básico)' },
-    { value: 'in-flight', label: 'In Flight (Intermedio)' },
-    { value: 'captain-mode', label: 'Captain Mode (Avanzado)' },
-    { value: 'consulta-general', label: 'Consulta General' }
-  ];
-
-  const levels = [
-    { value: 'principiante', label: 'Principiante' },
-    { value: 'basico', label: 'Básico' },
-    { value: 'intermedio', label: 'Intermedio' },
-    { value: 'avanzado', label: 'Avanzado' },
-    { value: 'no-seguro', label: 'No estoy seguro' }
-  ];
-
-  const schedules = [
-    { value: 'manana', label: 'Mañana (8:00 AM - 12:00 PM)' },
-    { value: 'tarde', label: 'Tarde (2:00 PM - 6:00 PM)' },
-    { value: 'noche', label: 'Noche (6:00 PM - 10:00 PM)' },
-    { value: 'fin-semana', label: 'Fines de Semana' },
-    { value: 'flexible', label: 'Flexible' }
-  ];
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormStatus('');
-
-    // Simulación de envío de formulario
-    try {
-      // Aquí iría la lógica real de envío
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setFormStatus('success');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        program: '',
-        level: '',
-        preferredSchedule: '',
-        message: ''
-      });
-    } catch (error) {
-      setFormStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const contactInfo = [
     {
       icon: '📧',
       title: 'Email',
-      content: 'info@attheairport.edu',
-      subtitle: 'Respuesta en 24 horas'
+      content: 'info@aeronauticalenglish.es',
+      subtitle: 'Respuesta dentro de las 24 horas'
     },
     {
       icon: '📱',
       title: 'WhatsApp',
-      content: '+57 300 123 4567',
+      content: '+34 635 952 231',
       subtitle: 'Disponible 9 AM - 8 PM'
-    },
-    {
-      icon: '📞',
-      title: 'Teléfono',
-      content: '+57 (1) 234 5678',
-      subtitle: 'Lunes a Viernes'
-    },
-    {
-      icon: '📍',
-      title: 'Ubicación',
-      content: 'Bogotá, Colombia',
-      subtitle: 'Clases presenciales y online'
     }
   ];
 
   const socialLinks = [
-    { icon: '📘', name: 'Facebook', url: '#' },
-    { icon: '📷', name: 'Instagram', url: '#' },
-    { icon: '🐦', name: 'Twitter', url: '#' },
-    { icon: '💼', name: 'LinkedIn', url: '#' },
-    { icon: '📺', name: 'YouTube', url: '#' }
+    { 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#1877F2">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      ), 
+      name: 'Facebook', 
+      url: 'https://www.facebook.com/profile.php?id=61580190696923'
+    },
+    { 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#E4405F">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      ), 
+      name: 'Instagram', 
+      url: 'https://www.instagram.com/atairportenglishacademy?igsh=MXI3Y3lxbGc3cHRwdg%3D%3D&utm_source=qr' 
+    },
+    { 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      ), 
+      name: 'YouTube', 
+      url: 'https://www.youtube.com/@WendyCfb'
+    }
   ];
 
   return (
@@ -126,167 +63,33 @@ const Contact = () => {
             <div className="form-container">
               <div className="form-header">
                 <h3>Solicita Información</h3>
-                <p>Completa el formulario y te contactaremos en menos de 24 horas</p>
+                <p>Completa nuestro formulario para conocerte mejor y ofrecerte la información más relevante para tu perfil</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="firstName">Nombre *</label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      required
-                      placeholder="Tu nombre"
-                    />
+              <div className="form-cta-content">
+                <div className="form-benefits">
+                  <div className="benefit-point">
+                    <span className="check-icon">✓</span>
+                    <p>Información personalizada según tu nivel</p>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="lastName">Apellido *</label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      required
-                      placeholder="Tu apellido"
-                    />
+                  <div className="benefit-point">
+                    <span className="check-icon">✓</span>
+                    <p>Respuesta en menos de 24 horas</p>
+                  </div>
+                  <div className="benefit-point">
+                    <span className="check-icon">✓</span>
+                    <p>Consulta gratuita con nuestros expertos</p>
                   </div>
                 </div>
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="email">Email *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="phone">Teléfono *</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      placeholder="+57 300 123 4567"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="program">Programa de Interés *</label>
-                    <select
-                      id="program"
-                      name="program"
-                      value={formData.program}
-                      onChange={handleChange}
-                      required
-                    >
-                      <option value="">Selecciona un programa</option>
-                      {programs.map(program => (
-                        <option key={program.value} value={program.value}>
-                          {program.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="level">Nivel de Inglés Actual</label>
-                    <select
-                      id="level"
-                      name="level"
-                      value={formData.level}
-                      onChange={handleChange}
-                    >
-                      <option value="">Selecciona tu nivel</option>
-                      {levels.map(level => (
-                        <option key={level.value} value={level.value}>
-                          {level.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="preferredSchedule">Horario Preferido</label>
-                  <select
-                    id="preferredSchedule"
-                    name="preferredSchedule"
-                    value={formData.preferredSchedule}
-                    onChange={handleChange}
-                  >
-                    <option value="">Selecciona un horario</option>
-                    {schedules.map(schedule => (
-                      <option key={schedule.value} value={schedule.value}>
-                        {schedule.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Mensaje</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="5"
-                    placeholder="Cuéntanos más sobre tus objetivos y expectativas..."
-                  />
-                </div>
-
+                
                 <button 
-                  type="submit" 
-                  className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
-                  disabled={isSubmitting}
+                  onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSePZZkEFkB8n6AkMx-hkI6ZBx8Vpw9kEj-kR_GsO714VnNlbg/viewform?usp=header', '_blank')}
+                  className="btn-google-forms"
                 >
-                  {isSubmitting ? (
-                    <span className="btn-content">
-                      <span className="spinner"></span>
-                      Enviando...
-                    </span>
-                  ) : (
-                    <span className="btn-content">
-                      <span className="btn-icon">🚀</span>
-                      Enviar Solicitud
-                    </span>
-                  )}
+                  <span className="btn-icon">📝</span>
+                  Ir al Formulario
                 </button>
-
-                {formStatus === 'success' && (
-                  <div className="form-message success">
-                    <span className="message-icon">✅</span>
-                    <div>
-                      <strong>¡Solicitud enviada exitosamente!</strong>
-                      <p>Te contactaremos en menos de 24 horas.</p>
-                    </div>
-                  </div>
-                )}
-
-                {formStatus === 'error' && (
-                  <div className="form-message error">
-                    <span className="message-icon">❌</span>
-                    <div>
-                      <strong>Error al enviar la solicitud</strong>
-                      <p>Por favor, intenta nuevamente o contáctanos directamente.</p>
-                    </div>
-                  </div>
-                )}
-              </form>
+              </div>
             </div>
           </div>
 
@@ -317,6 +120,8 @@ const Contact = () => {
                     <a 
                       key={index} 
                       href={social.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
                       className="social-link"
                       aria-label={social.name}
                     >
@@ -331,15 +136,7 @@ const Contact = () => {
                 <div className="hours-grid">
                   <div className="hour-item">
                     <span className="day">Lunes - Viernes</span>
-                    <span className="time">8:00 AM - 8:00 PM</span>
-                  </div>
-                  <div className="hour-item">
-                    <span className="day">Sábados</span>
-                    <span className="time">9:00 AM - 5:00 PM</span>
-                  </div>
-                  <div className="hour-item">
-                    <span className="day">Domingos</span>
-                    <span className="time">Cerrado</span>
+                    <span className="time">9:00 AM - 8:00 PM</span>
                   </div>
                 </div>
               </div>
@@ -351,7 +148,10 @@ const Contact = () => {
           <div className="cta-content">
             <h3>¿Prefieres hablar directamente?</h3>
             <p>Agenda una llamada gratuita de 15 minutos para resolver todas tus dudas</p>
-            <button className="btn-secondary schedule-call">
+            <button 
+              className="btn-secondary schedule-call"
+              onClick={() => window.open('https://calendly.com/wendycfb/llamada-at-the-airport-by-wendy-camargo', '_blank')}
+            >
               <span className="btn-icon">📞</span>
               Agendar Llamada Gratuita
             </button>

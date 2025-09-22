@@ -1,0 +1,41 @@
+{
+  "colors": {
+    "primary": {
+      "blue": "#1E5BA8",
+      "lightBlue": "#4A9EFF",
+      "darkBlue": "#0F3D6B"
+    },
+    "secondary": {
+      "orange": "#FF6B35",
+      "accentOrange": "#FF8C42",
+      "vibrantOrange": "#FF6B35"
+    },
+    "neutral": {
+      "white": "#FFFFFF",
+      "lightGray": "#F8F9FA",
+      "headerBg": "#E8F4FD",
+      "textDark": "#2C3E50",
+      "textLight": "#6C757D",
+      "darkGray": "#2C3E50"
+    },
+    "effects": {
+      "shadowLight": "0 4px 15px rgba(0, 0, 0, 0.1)",
+      "shadowMedium": "0 8px 30px rgba(0, 0, 0, 0.15)",
+      "shadowStrong": "0 15px 50px rgba(0, 0, 0, 0.2)"
+    }
+  },
+  "typography": {
+    "primary": "'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    "secondary": "'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+  },
+  "spacing": {
+    "borderRadius": "12px",
+    "borderRadiusSmall": "8px",
+    "borderRadiusLarge": "20px"
+  },
+  "animations": {
+    "transitionFast": "all 0.2s ease",
+    "transitionMedium": "all 0.3s ease",
+    "transitionSlow": "all 0.5s ease"
+  }
+}

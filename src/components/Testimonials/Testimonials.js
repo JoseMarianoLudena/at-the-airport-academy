@@ -1,76 +1,127 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './Testimonials.css';
 
 const Testimonials = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [playingVideo, setPlayingVideo] = useState(null);
+  const [videoDurations, setVideoDurations] = useState({});
+  const [videoThumbnails, setVideoThumbnails] = useState({});
+  const [currentSlide, setCurrentSlide] = useState(0); // ✅ ESTADO PARA EL CARRUSEL
+  const videoRefs = useRef({});
 
-  // SOLO 3 TESTIMONIOS
-  const testimonials = [
-    {
-      id: 1,
-      name: "Carlos Mendoza",
-      role: "Piloto Comercial",
-      company: "Aerolíneas del Caribe",
-      avatar: "👨‍✈️",
-      rating: 5,
-      text: "At The Airport me preparó perfectamente para mi trabajo como piloto. El inglés aeronáutico que aprendí aquí me dio la confianza necesaria para comunicarme efectivamente en vuelos internacionales.",
-      program: "Captain Mode",
-      hasVideo: true
-    },
-    {
-      id: 2,
-      name: "María González",
-      role: "Tripulante de Cabina",
-      company: "Sky Airlines",
-      avatar: "👩‍✈️",
-      rating: 5,
-      text: "El programa In Flight me ayudó enormemente a conseguir mi trabajo actual. Los instructores son excelentes y el material está muy actualizado con los estándares internacionales.",
-      program: "In Flight",
-      hasVideo: true
-    },
-    {
-      id: 3,
-      name: "Diego Ramírez",
-      role: "Controlador de Tráfico Aéreo",
-      company: "Aerocivil Colombia",
-      avatar: "👨‍💼",
-      rating: 5,
-      text: "Gracias a Ready for Take-Off desarrollé las bases sólidas que necesitaba. El enfoque práctico y la metodología de enseñanza son excepcionales. Totalmente recomendado.",
-      program: "Ready for Take-Off",
-      hasVideo: true
-    }
-  ];
+  const formatDuration = useCallback((seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }, []);
+
+  const generateVideoThumbnail = useCallback((videoId, videoSrc) => {
+    const video = document.createElement('video');
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    video.src = videoSrc;
+    video.currentTime = 1;
+    video.crossOrigin = 'anonymous';
+    
+    video.onloadedmetadata = () => {
+      const duration = formatDuration(video.duration);
+      setVideoDurations(prev => ({
+        ...prev,
+        [videoId]: duration
+      }));
+      console.log(`Video ${videoId} duration: ${duration}`);
+    };
+    
+    video.onseeked = () => {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      
+      const thumbnailUrl = canvas.toDataURL('image/jpeg', 0.8);
+      setVideoThumbnails(prev => ({
+        ...prev,
+        [videoId]: thumbnailUrl
+      }));
+      console.log(`Thumbnail generated for video ${videoId}`);
+    };
+    
+    video.onerror = () => {
+      console.error(`Error loading video ${videoId}`);
+      setVideoDurations(prev => ({
+        ...prev,
+        [videoId]: "Error"
+      }));
+    };
+  }, [formatDuration]);
 
   const videoTestimonials = [
     {
       id: 1,
-      name: "Ana Sofía Herrera",
-      role: "Piloto en Entrenamiento",
-      description: "Conoce cómo Ana Sofía logró sus metas profesionales",
+      name: "Erika",
+      role: "Estudiante",
+      description: "Conoce cómo Erika logró sus metas profesionales",
       emoji: "👩‍✈️",
-      duration: "2:30"
+      duration: "0:00",
+      videoSrc: "/assets/images/Erika.mp4"
     },
     {
       id: 2,
-      name: "Roberto Silva",
-      role: "Ingeniero Aeronáutico",
-      description: "El testimonio de Roberto sobre su experiencia",
+      name: "Hector",
+      role: "Estudiante",
+      description: "El testimonio de Hector sobre su experiencia y su proceso de aprendizaje",
       emoji: "👨‍🔧",
-      duration: "3:15"
+      duration: "0:00",
+      videoSrc: "/assets/images/Hector.mp4"
     },
     {
       id: 3,
-      name: "Camila Torres",
-      role: "Despachadora de Vuelo",
-      description: "Camila nos cuenta sobre su proceso de aprendizaje",
+      name: "Jordan",
+      role: "Estudiante",
+      description: "Jordan nos cuenta sobre su proceso de aprendizaje",
       emoji: "👩‍💼",
-      duration: "2:45"
+      duration: "0:00",
+      videoSrc: "/assets/images/Jordan.mp4"
+    },
+    {
+      id: 4,
+      name: "Estudiante",
+      role: "Técnico de Mantenimiento",
+      description: "Mariana comparte su experiencia de transformación profesional",
+      emoji: "👨‍🔧",
+      duration: "0:00",
+      videoSrc: "/assets/images/Mariana.mp4"
     }
   ];
 
-  // Solo cambio manual al hacer clic
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  // ✅ FUNCIONES DEL CARRUSEL
+  const nextSlide = () => {
+    setCurrentSlide(prev => (prev + 1) % videoTestimonials.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => (prev - 1 + videoTestimonials.length) % videoTestimonials.length);
+  };
+
+  // ✅ OBTENER LOS 3 TESTIMONIOS VISIBLES
+  const getVisibleTestimonials = () => {
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentSlide + i) % videoTestimonials.length;
+      visible.push(videoTestimonials[index]);
+    }
+    return visible;
+  };
+
+  useEffect(() => {
+    videoTestimonials.forEach(video => {
+      generateVideoThumbnail(video.id, video.videoSrc);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [generateVideoThumbnail]);
+
+  const handlePlayVideo = (videoId) => {
+    console.log('Playing video:', videoId);
+    setPlayingVideo(playingVideo === videoId ? null : videoId);
   };
 
   const scrollToContact = () => {
@@ -87,99 +138,117 @@ const Testimonials = () => {
     }
   };
 
-  const renderStars = (rating) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      <span key={index} className={`star ${index < rating ? 'filled' : ''}`}>
-        ⭐
-      </span>
-    ));
-  };
-
   return (
     <section id="testimonios" className="testimonials section">
       <div className="container">
-        <div className="testimonials-header" data-aos="fade-up">
-          <h2 className="section-title">Lo Que Dicen Nuestros Graduados</h2>
-          <p className="section-subtitle">
-            Historias reales de éxito de estudiantes que han transformado sus carreras 
-            con nuestros programas de inglés aeronáutico
-          </p>
-        </div>
-
-        <div className="testimonials-main">
-          <div className="testimonials-carousel" data-aos="fade-up" data-aos-delay="200">
-            <div className="carousel-container">
-              {/* Mostrar solo el testimonio actual */}
-              <div className="testimonial-slide">
-                <div className="testimonial-card">
-                  <div className="testimonial-header">
-                    <div className="testimonial-avatar">
-                      <span className="avatar-emoji">{testimonials[currentSlide].avatar}</span>
-                    </div>
-                    <div className="testimonial-info">
-                      <h4 className="testimonial-name">{testimonials[currentSlide].name}</h4>
-                      <p className="testimonial-role">{testimonials[currentSlide].role}</p>
-                      <p className="testimonial-company">{testimonials[currentSlide].company}</p>
-                      <div className="testimonial-rating">
-                        {renderStars(testimonials[currentSlide].rating)}
-                      </div>
-                    </div>
-                    {testimonials[currentSlide].hasVideo && (
-                      <div className="video-indicator">
-                        <span className="video-icon">🎥</span>
-                      </div>
-                    )}
-                  </div>
-                  
-                  <div className="testimonial-content">
-                    <p className="testimonial-text">"{testimonials[currentSlide].text}"</p>
-                    <div className="testimonial-program">
-                      <span className="program-label">Programa:</span>
-                      <span className="program-name">{testimonials[currentSlide].program}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="carousel-navigation">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  className={`nav-dot ${currentSlide === index ? 'active' : ''}`}
-                  onClick={() => goToSlide(index)}
-                  aria-label={`Ir al testimonio ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="video-testimonials" data-aos="fade-up" data-aos-delay="400">
+        <div className="video-testimonials" data-aos="fade-up">
           <div className="video-section-header">
-            <h3>Testimonios en Video</h3>
-            <p>Escucha directamente de nuestros graduados sobre su experiencia</p>
+            <h2 className="section-title">Historias reales de cambios profesional</h2>
+            <p className="section-subtitle">
+              Escucha directamente de nuestros profesionales sobre su experiencia
+            </p>
           </div>
           
-          <div className="video-grid">
-            {videoTestimonials.map((video) => (
-              <div key={video.id} className="video-card" data-aos="fade-up" data-aos-delay={video.id * 100}>
-                <div className="video-thumbnail">
-                  <span className="video-emoji">{video.emoji}</span>
-                  <div className="video-play-icon">
-                    <span>▶️</span>
+          {/* ✅ CARRUSEL CON FLECHAS */}
+          <div className="video-carousel-container">
+            <button 
+              className="carousel-arrow carousel-arrow-left" 
+              onClick={prevSlide}
+              aria-label="Anterior testimonio"
+            >
+              <span>‹</span>
+            </button>
+            
+            <div className="video-grid">
+              {getVisibleTestimonials().map((video, index) => {
+                const displayDuration = videoDurations[video.id] || video.duration;
+                const thumbnail = videoThumbnails[video.id];
+                
+                return (
+                  <div key={video.id} className="video-card" data-aos="fade-up" data-aos-delay={index * 100}>
+                    <div 
+                      className="video-thumbnail"
+                      onClick={() => handlePlayVideo(video.id)}
+                    >
+                      {playingVideo === video.id ? (
+                        <video 
+                          ref={el => videoRefs.current[video.id] = el}
+                          controls 
+                          autoPlay
+                          className="testimonial-video"
+                          onEnded={() => setPlayingVideo(null)}
+                          onError={(e) => {
+                            console.error('Error loading video:', video.videoSrc);
+                            console.error('Full error:', e);
+                          }}
+                          onLoadStart={() => console.log('Loading video:', video.videoSrc)}
+                        >
+                          <source src={video.videoSrc} type="video/mp4" />
+                          Tu navegador no soporta este video.
+                        </video>
+                      ) : (
+                        <div className="video-preview">
+                          {thumbnail ? (
+                            <img 
+                              src={thumbnail} 
+                              alt={`Vista previa de ${video.name}`}
+                              className="video-thumbnail-image"
+                            />
+                          ) : (
+                            <span className="video-emoji">{video.emoji}</span>
+                          )}
+                          <div 
+                            className="video-play-icon"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handlePlayVideo(video.id);
+                            }}
+                          >
+                            <span>▶️</span>
+                          </div>
+                          <div className="video-overlay"></div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="video-info">
+                      <h4>{video.name}</h4>
+                      <p className="video-role">{video.role}</p>
+                      <p className="video-description">{video.description}</p>
+                      <button 
+                        className="video-play-btn"
+                        onClick={() => handlePlayVideo(video.id)}
+                      >
+                        <span className="play-icon">
+                          {playingVideo === video.id ? "⏹️" : "▶️"}
+                        </span>
+                        {playingVideo === video.id 
+                          ? "Detener" 
+                          : `Ver Testimonio (${displayDuration})`}
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div className="video-info">
-                  <h4>{video.name}</h4>
-                  <p className="video-role">{video.role}</p>
-                  <p className="video-description">{video.description}</p>
-                  <button className="video-play-btn">
-                    <span className="play-icon">▶️</span>
-                    Ver Testimonio ({video.duration})
-                  </button>
-                </div>
-              </div>
+                );
+              })}
+            </div>
+            
+            <button 
+              className="carousel-arrow carousel-arrow-right" 
+              onClick={nextSlide}
+              aria-label="Siguiente testimonio"
+            >
+              <span>›</span>
+            </button>
+          </div>
+
+          {/* ✅ INDICADORES DEL CARRUSEL */}
+          <div className="carousel-indicators">
+            {videoTestimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                onClick={() => setCurrentSlide(index)}
+                aria-label={`Ir al testimonio ${index + 1}`}
+              />
             ))}
           </div>
         </div>
